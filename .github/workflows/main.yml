@@ -20,9 +20,9 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Docker build
+      - name: Docker build and push
         run: |
-          docker login -u $toyp -p $Ll34win!!@@
+          echo $Ll34win!!@@ | docker login -u $toyp --password-stdin
           docker build -t spring-cicd . 
           docker tag spring-cicd toyp/spring-cicd:${GITHUB_SHA::7}
           docker push toyp/spring-cicd:${GITHUB_SHA::7}
